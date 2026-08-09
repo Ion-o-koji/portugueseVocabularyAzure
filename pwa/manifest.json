@@ -1,52 +1,57 @@
 {
-"name": "Portuguese Vocabulary",
-"short_name": "Portuguese Vocab",
-"description": "A Portuguese vocabulary learning app for studying and practicing Portuguese
-words and phrases.",
-"id": "/",
-"start_url": "../index.html",
-"scope": "../",
-"display": "standalone",
-"display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-"orientation": "portrait",
-"background_color": "#0f0f1a",
-"theme_color": "#0f0f1a",
-"lang": "en",
-"dir": "ltr",
-"categories": ["education", "utilities"],
-"prefer_related_applications": false,
-"icons": [
-{
-"src": "appicon-192.png",
-"sizes": "192x192",
-"type": "image/png",
-"purpose": "any"
-},
-{
-"src": "appicon-192.png",
-"sizes": "192x192",
-"type": "image/png",
-"purpose": "maskable"
-},
-{
-"src": "appicon-512.png",
-"sizes": "512x512",
-"type": "image/png",
-"purpose": "any"
-},
-{
-"src": "appicon-512.png",
-"sizes": "512x512",
-"type": "image/png",
-"purpose": "maskable"
-}
-],
-"shortcuts": [ {
-"name": "Open App",
-"short_name": "Open",
-"description": "Open Portuguese Vocabulary",
-"url": "../index.html",
-"icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
-}
-]
+  "name": "Portuguese Vocabulary",
+  "short_name": "Portuguese Vocab",
+  "description": "A Portuguese vocabulary learning app for studying and practicing Portuguese words and phrases.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#0f0f1a",
+  "theme_color": "#0f0f1a",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "utilities"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/pwa/appicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/appicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa/appicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/appicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Open App",
+      "short_name": "Open",
+      "description": "Open Portuguese Vocabulary",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/pwa/appicon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
