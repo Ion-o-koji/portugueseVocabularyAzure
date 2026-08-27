@@ -1,12 +1,12 @@
-const CACHE_NAME = 'khmer-vocab-v1';
+const CACHE_NAME = 'khmer-vocab-v1.1';
 const urlsToCache = [
   '/',
   '/index.html',
   '/pwa/manifest.json',
   '/pwa/appicon-192.png',
   '/pwa/appicon-512.png',
-  'https://cdn.jsdelivr.net/gh/Ion-o-koji/Miscellaneous@main/scripts/portugueseVocabularyScripts.js',
-  'https://cdn.jsdelivr.net/gh/Ion-o-koji/Miscellaneous@main/styles/portugueseVocabularyStyles.css'
+  'https://cdn.jsdelivr.net/gh/Ion-o-koji/portuguese-Vocabulary-Assets@main/scripts/portugueseVocabularyScripts.js',
+  'https://cdn.jsdelivr.net/gh/Ion-o-koji/portuguese-Vocabulary-Assets@main/styles/portugueseVocabularyStyles.css'
 ];
 
 self.addEventListener('install', event => {
