@@ -11,7 +11,28 @@
     <meta name="apple-mobile-web-app-title" content="Portuguese Vocabulary" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="apple-touch-icon" href="/pwa/appicon-192.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Ion-o-koji/portuguese-Vocabulary-Assets@main/styles/portugueseVocabularyStyles.css" />
+    <link id="app-stylesheet" rel="stylesheet" />
+    <script>
+      function getWeeklyCacheKey() {
+        var now = new Date();
+        var dayOfWeek = now.getUTCDay();
+        var hoursUTC = now.getUTCHours();
+        var minutesUTC = now.getUTCMinutes();
+        var daysToMonday = (8 - dayOfWeek) % 7;
+        if (daysToMonday === 0 && (hoursUTC < 20 || (hoursUTC === 20 && minutesUTC < 30))) {
+          daysToMonday = 0;
+        } else if (daysToMonday === 0) {
+          daysToMonday = 7;
+        }
+        var nextMonday = new Date(now.getTime() + daysToMonday * 86400000);
+        return Date.UTC(nextMonday.getUTCFullYear(), nextMonday.getUTCMonth(), nextMonday.getUTCDate(), 20, 30, 0);
+      }
+
+      var appCacheKey = getWeeklyCacheKey();
+      document.getElementById('app-stylesheet').href =
+        'https://cdn.jsdelivr.net/gh/Ion-o-koji/portuguese-Vocabulary-Assets@main/styles/portugueseVocabularyStyles.css?v=' +
+        appCacheKey;
+    </script>
     <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/svgs/solid/book.svg" />
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -485,24 +506,9 @@
     </div>
 
     <script>
-      function getWeeklyCacheKey() {
-        var now = new Date();
-        var dayOfWeek = now.getUTCDay();
-        var hoursUTC = now.getUTCHours();
-        var minutesUTC = now.getUTCMinutes();
-        var daysToMonday = (8 - dayOfWeek) % 7;
-        if (daysToMonday === 0 && (hoursUTC < 20 || (hoursUTC === 20 && minutesUTC < 30))) {
-          daysToMonday = 0;
-        } else if (daysToMonday === 0) {
-          daysToMonday = 7;
-        }
-        var nextMonday = new Date(now.getTime() + daysToMonday * 86400000);
-        return Date.UTC(nextMonday.getUTCFullYear(), nextMonday.getUTCMonth(), nextMonday.getUTCDate(), 20, 30, 0);
-      }
-
       (function() {
         var s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/gh/Ion-o-koji/portuguese-Vocabulary-Assets@main/scripts/portugueseVocabularyScripts.js?v=' + getWeeklyCacheKey();
+        s.src = 'https://cdn.jsdelivr.net/gh/Ion-o-koji/portuguese-Vocabulary-Assets@main/scripts/portugueseVocabularyScripts.js?v=' + appCacheKey;
         document.body.appendChild(s);
       })();
     </script>
