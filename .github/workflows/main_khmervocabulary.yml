@@ -1,0 +1,32 @@
+name: Deploy to Azure Blob Static Website
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Stage web files
+        run: |
+          mkdir -p deploy
+          cp index.html deploy/
+          cp -r pwa deploy/
+
+      - name: Deploy to Azure $web container
+        uses: azure/CLI@v2
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        with:
+          inlineScript: |
+            az storage blob upload-batch \
+              --destination '$web' \
+              --source deploy \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --overwrite
